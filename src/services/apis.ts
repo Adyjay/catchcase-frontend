@@ -32,6 +32,7 @@ export const fetchCategories = async (token: string) => {
 export const updateCategory = async (
   token: string,
   categoryId: string,
+  // @ts-ignore
   title: string,
   icon: string
 ) => {
@@ -56,7 +57,7 @@ export async function loginAdmin(email: string, password: string) {
 
   const result = await response.json();
 
-  
+
   if (!response.ok) throw new Error(result.message || "Login failed");
   return result;
 }

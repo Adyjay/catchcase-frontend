@@ -5,6 +5,7 @@ import { getAllQuestions } from "../../../services/apis";
 const ViewQuestions: React.FC = () => {
   const [questions, setQuestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+//   @ts-ignore
   const [token, setToken] = useState("");
   const navigate = useNavigate();
 

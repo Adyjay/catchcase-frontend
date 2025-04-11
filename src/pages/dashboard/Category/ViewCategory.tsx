@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ViewCategories: React.FC = () => {
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  // @ts-ignore
   const [token, setToken] = useState("");
   const navigate = useNavigate();
 

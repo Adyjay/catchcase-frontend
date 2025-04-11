@@ -13,6 +13,7 @@ const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>("Category");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  // @ts-ignore
   const [photo, setPhoto] = useState("");
   const navigate = useNavigate();
 

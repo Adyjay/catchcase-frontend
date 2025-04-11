@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ViewSubcategories: React.FC = () => {
   const [subcategories, setSubcategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  // @ts-ignore
   const [token, setToken] = useState("");
   const navigate = useNavigate();
 
