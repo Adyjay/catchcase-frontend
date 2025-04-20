@@ -131,7 +131,7 @@ export const addQuestion = async (
   token: string,
   title: string,
   description: string,
-  Subcategory: string
+  Subcategory: String
 ) => {
   const res = await axios.post(
     `${API}/admin/addQuestion`,

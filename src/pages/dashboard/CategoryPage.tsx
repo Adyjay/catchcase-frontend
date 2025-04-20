@@ -6,6 +6,7 @@ import ViewCategory from "./Category/ViewCategory";
 const subtabs = ["AddCategory", "UpdateCategory", "ViewCategory"] as const;
 type SubTab = typeof subtabs[number];
 
+
 const CategoryPage: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<SubTab>("AddCategory");
 

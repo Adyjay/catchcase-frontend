@@ -5,6 +5,7 @@ import SubCategoryPage from "./SubCategoryPage";
 import QuestionsPage from "./QuestionsPage";
 import UsersPage from "./UsersPage";
 import { dummyImage } from "../../services/constants";
+// const [searchQuery, setSearchQuery] = useState('');
 
 const tabs = ["Category", "SubCategory", "Questions", "Users"] as const;
 type Tab = typeof tabs[number];
@@ -75,27 +76,36 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
       </header>
+      {/* <input
+      type="text"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+       placeholder="Search anything..."
+       className="w-full p-2 mb-4 border rounded"/> */}
 
       {/* Tabs */}
-      <div className="max-w-6xl mx-auto mt-6">
-        <div className="flex justify-center gap-4 border-b border-gray-300 bg-white/60 rounded-t-xl backdrop-blur-sm px-6 py-3 shadow">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`py-2 px-4 text-sm font-medium border-b-2 transition-all duration-200 ${
-                activeTab === tab
-                  ? "border-indigo-600 text-indigo-600"
-                  : "border-transparent text-gray-500 hover:text-indigo-500"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+      <div className="max-w-6xl mx-auto mt-6 flex gap-6">
+        {/* <div className="flex justify-center gap-4 border-b border-gray-300 bg-white/60 rounded-t-xl backdrop-blur-sm px-6 py-3 shadow"> */}
+        {/* Sidebar Tabs */}
+<div className="w-56 bg-white p-6 rounded-xl shadow-xl backdrop-blur-md flex flex-col gap-4 h-fit">
+  {tabs.map((tab) => (
+    <button
+      key={tab}
+      onClick={() => setActiveTab(tab)}
+      className={`py-2 px-3 text-left text-sm font-medium rounded-lg transition-all duration-200 ${
+        activeTab === tab
+          ? "bg-indigo-600 text-white shadow"
+          : "bg-white hover:bg-indigo-100 text-gray-700"
+      }`}
+    >
+      {tab}
+    </button>
+  ))}
+</div>
+
 
         {/* Content Area */}
-        <div className="mt-6 bg-white p-6 rounded-b-xl shadow-xl backdrop-blur-md">
+        <div className="flex-1 bg-white p-6 rounded-b-xl shadow-xl backdrop-blur-md">
           {renderTabContent()}
         </div>
       </div>
