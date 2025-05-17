@@ -1,8 +1,8 @@
-export const API_BASE_URL = "https://catchcase-backend.onrender.com"; 
+export const API_BASE_URL = "https://api-catchcase.prataptechnologies.me"; 
 
 import axios from "axios";
 
-const API = 'https://catchcase-backend.onrender.com';
+const API = 'https://api-catchcase.prataptechnologies.me';
 // for subcategory
 export const addSubcategory = async (
   token: string,
