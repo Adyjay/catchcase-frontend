@@ -76,7 +76,7 @@ export const updateSubcategory = async (
   title: string,
   icon: string
 ) => {
-  console.log("id is", subcategoryId);
+  // console.log("id is", subcategoryId);
   const res = await axios.put(`${API}/admin/updatesubcategory/${subcategoryId}`, {
     "title": title,
     "iconString":icon,
@@ -130,12 +130,14 @@ export const addCategory = async (
 export const addQuestion = async (
   token: string,
   title: string,
+  catID: string,
   description: string,
-  Subcategory: String
+  subCatId: String
 ) => {
+  // const { catID, subCatId, description, title } = req.body;
   const res = await axios.post(
     `${API}/admin/addQuestion`,
-    { title, description, Subcategory },
+    { title, description, catID, subCatId },
     {
       headers: { Authorization: token },
     }
@@ -188,3 +190,75 @@ export const toggleUser = async (
   });
   return res.data.data;
 };
+
+export const addGameQuestion = async (
+  token: string,
+  gameid: number,
+  question: string,
+  answer: string,
+  opt1: string,
+  opt2: string,
+  opt3: string,
+  opt4: string
+) => {
+  const res = await axios.post(
+    `${API}/admin/addgamequestion/${gameid}`,
+    {
+      question,
+      answer,
+      opt1,
+      opt2,
+      opt3,
+      opt4
+    },
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
+  return res.data;
+};
+
+export const getGameQuestions = async (token: string, gameId: number) => {
+  const res = await fetch(`${API}/game/questions/${gameId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) throw await res.json();
+  return await res.json();
+};
+
+export const getAllGames = async (token: string) => {
+  const res = await fetch(`${API}/game/allgames`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`, // Include Bearer if your middleware expects it
+    },
+  });
+
+  if (!res.ok) throw await res.json();
+  const json = await res.json();
+  return json.data; // Extract only the `data` (games list)
+};
+
+
+export const fetchAllGames = async (token: string) => {
+  const res = await axios.get(`${API}/game/allgames`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data.data; // again, pulling just the games list
+};
+
+export const getsubcatwithcat = async (token: string, categoryId: string) => {
+  const res = await axios.get(`${API}/user/subcatwithcat/${categoryId}`, {
+    headers: { Authorization: token },
+  });
+  return res.data.data;
+};
+
