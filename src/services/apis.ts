@@ -252,7 +252,8 @@ export const fetchAllGames = async (token: string) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  return res.data.data; // again, pulling just the games list
+
+  return res.data; // again, pulling just the games list
 };
 
 export const getsubcatwithcat = async (token: string, categoryId: string) => {

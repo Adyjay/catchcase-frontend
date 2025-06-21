@@ -30,7 +30,7 @@ const AddGameQuestion: React.FC = () => {
       setToken(storedToken);
       loadGames(storedToken);
     }
-  }, [navigate]);
+  }, []);
 
   const loadGames = async (token: string) => {
     try {
